@@ -22,7 +22,7 @@ data class LibrariesIoSearchResult(
     val licenses: String?, // MIT
     val name: String, // grunt
     val package_manager_url: String, // "https://www.npmjs.com/package/grunt"
-    val latest_download_url: String?, // "https://registry.npmjs.org/grunt/-/grunt-1.4.1.tgz",
+    val latest_download_url: String, // "https://registry.npmjs.org/grunt/-/grunt-1.4.1.tgz",
     val repository_url: String // "https://github.com/gruntjs/grunt",
 )
 
